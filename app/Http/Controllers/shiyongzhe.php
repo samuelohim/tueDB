@@ -16,8 +16,8 @@ class shiyongzhe extends Controller
     public function index()
     {
         //
-        $user = User::get();
-        return view('listusersBlade', compact('user'));
+        $users = User::get();
+        return view('listusersBlade', compact('users'));
     }
 
     /**
@@ -49,7 +49,8 @@ class shiyongzhe extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        return view('userDetailBlade', compact('user'));
     }
 
     /**
@@ -84,5 +85,8 @@ class shiyongzhe extends Controller
     public function destroy($id)
     {
         //
+        $user = User::find($id);
+        $user->delete();
+        return redirect('syz');
     }
 }
