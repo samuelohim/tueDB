@@ -25,7 +25,7 @@
         <li class="active">
         	<a href="#">
         		Create
-        			<span class="glyphicon glyphicon-cog"></span>
+        			<span class="glyphicon glyphicon-plus-sign"></span>
         	</a>
         </li>
         <li><a href="#">Link</a></li>

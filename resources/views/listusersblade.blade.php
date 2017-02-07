@@ -9,7 +9,7 @@
       <th>Name</th>
       <th><span class="glyphicon glyphicon-envelope"></span></th>
       <th>Created on</th>
-      <th><span class="glyphicon glyphicon-wrench"></span></th>
+      <th><span class="glyphicon glyphicon-cog"></span></th>
     </tr>
   </thead>
 
@@ -17,9 +17,8 @@
 	    <tr class="active">
 	      <td>{{$user->id}}</td>
 	      <td>{{$user->name}}
-	      		<form action="/syz/{{$user->id}}" method = 'POST'>
-     	  		{!! csrf_field() !!}
-	      			<input type = 'hidden' name = '_method' value = 'HEAD'>
+	      		<form action="/syz/{{$user->id}}" method = 'GET'>
+     	  			{!! csrf_field() !!} 
 	      			<button type = 'submit' class="btn btn-info">
 	      				<span class="glyphicon glyphicon-zoom-in"></span>
 	      				
@@ -29,14 +28,26 @@
 	      <td>{{$user->email}}</td>
 	      <td>{{$user->created_at}}</td>
      	  <td>
+			<ul class="list-inline list-unstyled">
+				<li>
+		     	  	<form action = '/syz/{{$user->id}}/edit' method = 'GET'>
+		     	  		{!! csrf_field() !!}
+		     	  		<button type = 'submit' class="btn btn-success">
+		     	  			<span class="glyphicon glyphicon-wrench"></span>
+		     	  		</button>
+		     	  	</form>
+				</li>
+				<li>
+		     	  	<form action = '/syz/{{$user->id}}' method = 'POST'>
+		     	  		{!! csrf_field() !!}
+		     	  		<input type = 'hidden' name = '_method' value = 'DELETE'>
+		     	  		<button type = 'submit' class="btn btn-danger">
+		     	  			<span class="glyphicon glyphicon-trash"></span>
+		     	  		</button>
+		     	  	</form>
+     	  		</li>
 
-     	  	<form action = '/syz/{{$user->id}}' method = 'POST'>
-     	  		{!! csrf_field() !!}
-     	  		<input type = 'hidden' name = '_method' value = 'DELETE'>
-     	  		<button type = 'submit' class="btn btn-danger">
-     	  			<span class="glyphicon glyphicon-trash"></span>
-     	  		</button>
-     	  	</form>
+			</ul>
      	  </td>
 	    </tr>
 	@endforeach

@@ -39,6 +39,7 @@ class shiyongzhe extends Controller
     public function store(Request $request)
     {
         //
+    
     }
 
     /**
@@ -62,6 +63,8 @@ class shiyongzhe extends Controller
     public function edit($id)
     {
         //
+        $syzhe = User::find($id);
+        return view('editUserBlade', compact('syzhe'));
     }
 
     /**
@@ -74,6 +77,16 @@ class shiyongzhe extends Controller
     public function update(Request $request, $id)
     {
         //
+        $user = User::find($id);
+        if ($request->has('name'))
+            $user->name = $request->input('name');
+        if ($request->has('email'))
+            $user->email = $request->input('email');
+        if ($request->has('password'))
+            $user->password = bcrypt($request->input('password'));
+        $user->save();
+        return redirect('syz');
+
     }
 
     /**
