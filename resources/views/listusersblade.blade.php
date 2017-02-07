@@ -16,14 +16,20 @@
 	@foreach ($users as $user)
 	    <tr class="active">
 	      <td>{{$user->id}}</td>
-	      <td>{{$user->name}}
-	      		<form action="/syz/{{$user->id}}" method = 'GET'>
-     	  			{!! csrf_field() !!} 
-	      			<button type = 'submit' class="btn btn-info">
-	      				<span class="glyphicon glyphicon-zoom-in"></span>
-	      				
-	      			</button>
-	      		</form>
+	      <td>
+				<ul class="list-inline list-unstyled">
+					<li> {{$user->name}} </li>
+					<li>
+						<form action="/syz/{{$user->id}}" method = 'GET'>
+		     	  			{!! csrf_field() !!} 
+			      			<button type = 'submit' class="btn btn-info">
+			      				<span class="glyphicon glyphicon-zoom-in"></span>
+			      				
+			      			</button>
+			      		</form>
+	      			</li>
+				</ul>
+	      		
 	      </td>
 	      <td>{{$user->email}}</td>
 	      <td>{{$user->created_at}}</td>

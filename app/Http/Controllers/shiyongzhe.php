@@ -27,7 +27,7 @@ class shiyongzhe extends Controller
      */
     public function create()
     {
-        //
+        return view('createUserBlade');
     }
 
     /**
@@ -39,7 +39,9 @@ class shiyongzhe extends Controller
     public function store(Request $request)
     {
         //
-    
+        $userData = $request->all();
+        User::create($userData);
+        return redirect('syz');
     }
 
     /**

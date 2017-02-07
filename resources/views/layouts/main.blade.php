@@ -23,7 +23,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
         <li class="active">
-        	<a href="#">
+        	<a href="/syz/create">
         		Create
         			<span class="glyphicon glyphicon-plus-sign"></span>
         	</a>
