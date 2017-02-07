@@ -18,6 +18,7 @@
 	      <td>{{$user->id}}</td>
 	      <td>{{$user->name}}
 	      		<form action="/syz/{{$user->id}}" method = 'POST'>
+     	  		{!! csrf_field() !!}
 	      			<input type = 'hidden' name = '_method' value = 'HEAD'>
 	      			<button type = 'submit' class="btn btn-info">
 	      				<span class="glyphicon glyphicon-zoom-in"></span>
